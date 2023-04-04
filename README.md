@@ -2,7 +2,7 @@
 Basic Spring-boot application to CRUD RSVP responses into mySQL database
 
 1) Get all RSVPs: hostname:port/api/rsvps
-2) Get RSVP by <name>: hostname:port/api/rsvp?q=<name>
+2) Get RSVP by name: hostname:port/api/rsvp?q=name
 3) Post RSVP (Accept: application/json) : hostname:port/api/rsvp
 4) Update RSVP (Accept: application/json) : hostname:port/api/rsvp/<email>
 
