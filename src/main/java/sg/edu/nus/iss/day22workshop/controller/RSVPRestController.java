@@ -83,4 +83,9 @@ public class RSVPRestController {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(Json.createObjectBuilder().add("message", "successful update").build().toString());
     }
 
+    @GetMapping(path="/rsvps/count")
+    public ResponseEntity<String> getTotalRSVPCounts() {
+        long count = rsvpService.getTotalRSVPCount();
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(Json.createObjectBuilder().add("total RSVP count", count).build().toString());
+    }
 }

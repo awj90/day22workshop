@@ -52,4 +52,8 @@ public class RSVPService {
         RSVP rsvp = jsonStringToJsonObject(json);
         return rsvpRepository.updateRSVP(email, rsvp);
     }
+
+    public Long getTotalRSVPCount() {
+        return rsvpRepository.getTotalRSVPCount();
+    }
 }

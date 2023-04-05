@@ -8,4 +8,5 @@ public class DBQueries {
     public static final String SELECT_RSVP_BY_EMAIL = "select * from rsvps where email = ?";
     public static final String INSERT_RSVP = "insert into rsvps (name, email, phone, confirmation_date, comments) values (?, ?, ?, ?, ?)";
     public static final String UPDATE_RSVP_BY_EMAIL = "update rsvps set name = ?, phone = ?, confirmation_date = ?, comments = ? where email = ? ";
+    public static final String SELECT_TOTAL_RSVP_COUNT = "select count(*) as total_count from rsvps";
 }

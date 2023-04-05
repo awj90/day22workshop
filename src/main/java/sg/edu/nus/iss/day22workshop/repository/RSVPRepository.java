@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,5 +113,10 @@ public class RSVPRepository {
                 new java.sql.Date(updatedRSVP.getConfirmationDate().getTime()), 
                 updatedRSVP.getComments(),
                 email) > 0;
+    }
+
+    public Long getTotalRSVPCount() {
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(SELECT_TOTAL_RSVP_COUNT); // returns a list that contains a map of <"total_count", count>
+        return (long) rows.get(0).get("total_count");
     }
 }
