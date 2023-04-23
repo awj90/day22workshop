@@ -36,7 +36,7 @@ public class RSVPRepository {
 
     public List<RSVP> getRSVPsByName(String name) {
         List<RSVP> RSVPs = new ArrayList<>();
-        // for mySQL instructions wrapped between single quotes, pass in through as an array of Objects
+        // for MySQL instructions wrapped between single quotes, pass in through as an array of Objects
         // String query = "'%" + name + "%'"; // this does not work
         // SqlRowSet rs = jdbcTemplate.queryForRowSet(SELECT_RSVP_BY_NAME, query); // this does not work
         SqlRowSet rs = jdbcTemplate.queryForRowSet(SELECT_RSVP_BY_NAME, new Object[] {"%" + name + "%"});

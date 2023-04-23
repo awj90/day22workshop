@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="POST" data-th-action="@{/api/rsvp}" data-th-object="${rsvp}">
+      <table>
+        <tr>
+          <td>Your Name:</td>
+          <td>
+            <input
+              type="text"
+              placeholder="Your name"
+              data-th-field="*{name}"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Your Email:</td>
+          <td>
+            <input
+              type="email"
+              placeholder="Your email"
+              data-th-field="*{email}"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Your Phone No.:</td>
+          <td>
+            <input
+              type="tel"
+              placeholder="Your phone number"
+              data-th-field="*{phone}"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Comments:</td>
+          <td>
+            <textarea data-th-field="*{comments}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Submit RSVP" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

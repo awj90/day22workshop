@@ -16,15 +16,7 @@ public class RSVP {
     private String comments;
 
     public RSVP() {
-    }
-
-    public RSVP(Integer id, String name, String email, String phone, Date confirmationDate, String comments) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.confirmationDate = confirmationDate;
-        this.comments = comments;
+        this.confirmationDate = new Date();
     }
     
     public Integer getId() {

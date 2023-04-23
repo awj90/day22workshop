@@ -53,6 +53,10 @@ public class RSVPService {
         return rsvpRepository.updateRSVP(email, rsvp);
     }
 
+    public boolean updateRSVP(String email, RSVP rsvp) {
+        return rsvpRepository.updateRSVP(email, rsvp);
+    }
+
     public Long getTotalRSVPCount() {
         return rsvpRepository.getTotalRSVPCount();
     }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -64,8 +65,17 @@ public class RSVPRestController {
     @PostMapping(path="/rsvp", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> insertUpdateRSVP(@RequestBody String json) throws ParseException {
         RSVP rsvp = rsvpService.jsonStringToJsonObject(json);
-        RSVP result = rsvpService.createRSVP(rsvp); // this 'result' holds just the rsvp id
+        RSVP result = rsvpService.createRSVP(rsvp); 
 
+        JsonObject jsonObject = Json.createObjectBuilder()
+                                    .add("rsvpID", result.getId())
+                                    .build();
+        return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(jsonObject.toString());
+    }
+
+    @PostMapping(path="/rsvp", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseEntity<String> insertUpdateRSVP(@ModelAttribute RSVP rsvp) {
+        RSVP result = rsvpService.createRSVP(rsvp); 
         JsonObject jsonObject = Json.createObjectBuilder()
                                     .add("rsvpID", result.getId())
                                     .build();
